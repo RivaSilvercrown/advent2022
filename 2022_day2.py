@@ -36,10 +36,9 @@ def RPS(strategy):
 
 
 def __main__():
-    input_file = open("day2_test.txt", "r")
+    input_file = open("day2input.txt", "r")
     content = input_file.read()
     strategy = content.split("\n")
-    print(strategy)
     print(RPS(strategy))
 
 if __name__ == "__main__":
