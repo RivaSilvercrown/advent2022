@@ -2,16 +2,18 @@
 def calory_count(food):
     Calories = 0
     Max_Calories = 0
+    #check every element in food
     for f in food:
+        #if the element is not empty, add its value to the calories count
         if (f != ''):
             Calories = Calories + int(f)
+        #if the element is empty, check if the calories count is higher than the max calories count. If so, set the max calories count to the calories count.
+        # Then reset the calories count to 0    
         else:
             if (Max_Calories < Calories):
                 Max_Calories = Calories
                 print(Max_Calories)
-                Calories = 0
-            else:
-                Calories = 0
+            Calories = 0
     return Max_Calories
 
 #main function
