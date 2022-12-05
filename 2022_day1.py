@@ -1,4 +1,4 @@
-def calory_count(int food):
+def calory_count(food):
 
     return Calories
 
