@@ -1,28 +1,30 @@
-def marker_detector(stream):
+def marker_detector(stream: str, n: int):
 
-    # program sliding window of width 4
-    marker = -1
-    for i in range(len(stream)-3):
-        # check if the window is a marker (all characters are different)
-        if (stream[i] != stream[i+1]) and (stream[i] != stream[i+2]) and (stream[i] != stream[i+3]) \
-            and (stream[i+1] != stream[i+2]) and (stream[i+1] != stream[i+3]) \
-            and (stream[i+2] != stream[i+3]):
-            # if it is, return the marker: last character position in the window
-            return i+4
-    return marker
+    # program sliding window of width n
+
+    for i in range(len(stream[n - 1:])):
+        # check that all characters are different
+        #a set must have all different elements
+        s = set(stream[i:i + n])
+        if n == len(s):
+            return i + n
+
+    return None
 
 def __main__():
     input_file = open("day6input.txt", "r")
     stream = input_file.read()
     print("Result: ")
-    print(marker_detector(stream))
+    print(marker_detector(stream, 4))
+    print(marker_detector(stream, 14))
 
     
 
     input_file = open("day6_test.txt", "r")
     stream = input_file.read()
     print("Test: ")
-    print(marker_detector(stream))
+    print(marker_detector(stream, 4))
+    print(marker_detector(stream, 14))
 
 if __name__ == "__main__":
     __main__()
