@@ -1,7 +1,5 @@
-def rucksacks(supplies):
-    priority_sum = 0
-    #mapping the priorities for different supplies
-    priority = {
+#mapping the priorities for different supplies
+priority = {
         "a": 1,
         "b": 2,
         "c": 3,
@@ -55,6 +53,10 @@ def rucksacks(supplies):
         "Y": 51,
         "Z": 52
     }
+
+def rucksacks(supplies):
+    priority_sum = 0
+
     # check each rucksack
     for rucksack in supplies:
         #divide the rucksack into two parts
@@ -72,6 +74,10 @@ def rucksacks(supplies):
                 found = 1
 
     return priority_sum
+
+def group_priority(supplies):
+    priority_sum = 0
+    #
 
 def __main__():
     input_file = open("day3input.txt", "r")
