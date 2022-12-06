@@ -75,21 +75,40 @@ def rucksacks(supplies):
 
     return priority_sum
 
-def group_priority(supplies):
+def group_rucksack(supplies):
     priority_sum = 0
-    #
+    
+    #taking groups of three ruksacks
+    for i in range(0, len(supplies), 3):
+        r1 = supplies[i]
+        r2 = supplies[i+1]
+        r3 = supplies[i+2]
+
+        found = 0
+
+        for element in r1:
+            #checks if the element is in the second and third rucksack and has not been found yet
+            if (element in r2) and (element in r3) and (found == 0):
+                priority_sum = priority_sum + priority[element]
+                e = element
+                #the element in all three parts is found
+                found = 1
+    return priority_sum
+
 
 def __main__():
     input_file = open("day3input.txt", "r")
     content = input_file.read()
     supplies = content.split("\n")
     print(rucksacks(supplies))
+    print(group_rucksack(supplies))
     
 
     input_file = open("day3_test.txt", "r")
     content = input_file.read()
     supplies = content.split("\n")
     print(rucksacks(supplies))
+    print(group_rucksack(supplies))
 
 if __name__ == "__main__":
     __main__()
